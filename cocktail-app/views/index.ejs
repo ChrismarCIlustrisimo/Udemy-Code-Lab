@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= cocktail.strDrink %> - Cocktail Recipe</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="parent-container">
+            
+            <div class="first-container">
+                <img src="<%= cocktail.strDrinkThumb %>" alt="Cocktail Image">
+            </div>
+            <div class="text-container">
+                <h1><%= cocktail.strDrink %></h1>
+                <div class="second-container">
+                    <p><strong>Category:</strong> <%= cocktail.strCategory %></p>
+                    <p><strong>Glass:</strong> <%= cocktail.strGlass %></p>
+                    <p><strong>Instructions:</strong> <%= cocktail.strInstructions %></p>
+                </div>
+                <div class="third-container">
+                    <h2>INGREDIENTS</h2>
+                    <ul>
+                        <% for (let i = 1; i <= 15; i++) { %>
+                            <% if (cocktail["strIngredient" + i]) { %>
+                                <li><%= cocktail["strIngredient" + i] %> - <%= cocktail["strMeasure" + i] || "" %></li>
+                            <% } %>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <button onclick="window.location.reload()">Get Another Cocktail</button>
+    </div>
+</body>
+</html>
